@@ -1,0 +1,1 @@
+select TO_CHAR(TIME, 'dd/mm/yyyy hh24:mi:ss'),LATENCY,UNIT from sanjeev.latency where TIME <= '21-MAY-14%';
