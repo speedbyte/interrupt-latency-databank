@@ -33,6 +33,17 @@ public class Latency_Read_Data implements Runnable {
 	public static Latency_Read_Data object = new Latency_Read_Data();
 
 	public static void main(String[] args) {
+		
+		try {
+	           for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+	               if ("Nimbus".equals(info.getName())) {
+	                   javax.swing.UIManager.setLookAndFeel(info.getClassName());
+	                   break;
+	               }
+	           }
+	       } catch (Exception ex) {
+	    	   System.out.println(ex);    	   
+	       }
 
 		JLabel Label = new JLabel("Serial Communication");
 		final JFrame frame = new JFrame("Serial Communication");
