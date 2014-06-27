@@ -28,7 +28,7 @@ public class Latency_Project extends javax.swing.JFrame implements Runnable {
     public static String URL = "jdbc:oracle:thin:@localhost:1521:xe";
     public static String username = "sanjeev";
     public static String DBpassword = "sanjeev";
-    public static SerialPort serialPort = new SerialPort("COM5");
+    public static SerialPort serialPort = new SerialPort("COM14");
     public static String[][] dbdata;
     public static int noOfRecords;
     Thread thread = null;
@@ -405,13 +405,14 @@ public class Latency_Project extends javax.swing.JFrame implements Runnable {
     // Port--------------------------
     public static void ReadData() {
         System.out.println("iam in");
-        while (true) {
+//        while (true) {
             try {
                 serialPort.openPort();// Open serial port
                 System.out.println("Port Open");
                 serialPort.setParams(115200, 8, 1, 0);// Set params.
                 System.out.println("Parameters Set");
-                byte[] buffer = serialPort.readBytes(34);// Read bytes from
+                while (true) {
+                	byte[] buffer = serialPort.readBytes(34);// Read bytes from
                 // serial port
                 if (buffer.length == 34) {
                     String received_data = new String(buffer);
@@ -422,13 +423,15 @@ public class Latency_Project extends javax.swing.JFrame implements Runnable {
                 } else {
                     break;
                 }
+                }
                 serialPort.closePort();// Close serial port
                 System.out.println("Port Closed");
-            } catch (SerialPortException ex) {
+            }
+             catch (SerialPortException ex) {
                 System.out.println(ex);
 
             }
-        }
+        
     }
 
     // ----------------------------Read data by Start Date from
