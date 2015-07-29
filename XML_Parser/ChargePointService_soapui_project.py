@@ -2,7 +2,8 @@ from xml.dom import minidom
 
 #------------------------File to be parsed--------------------------
 
-doc = minidom.parse('ChargePointService-soapui-project.xml')
+#doc = minidom.parse('ChargePointService-soapui-project.xml')
+doc = minidom.parse('whitelist.xml')
 
 #print doc.toxml()
 #print doc.childNodes

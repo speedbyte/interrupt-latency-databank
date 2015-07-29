@@ -17,7 +17,6 @@ def create(parent):
 
 class Frame2(wx.Frame):
     global db
-    db = MySQLdb.connect("127.0.0.1","root","","fetch_data" )
     
     def _init_utils(self):
         # generated method, don't edit
@@ -95,7 +94,8 @@ class Frame2(wx.Frame):
         self._init_ctrls(parent)
         
     def OnStartButton(self, event):
-                    
+        db = MySQLdb.connect("127.0.0.1","root","asdf","fetch_data" )
+            
         try:
             db.query("""SELECT * FROM colors where Button = 1""")
             r = db.store_result()
